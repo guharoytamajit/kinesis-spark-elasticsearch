@@ -30,7 +30,7 @@ private static final String ENDPOINT = "kinesis.us-east-1.amazonaws.com";
 public static void main(String[] args) throws IOException, InterruptedException {
 	 Logger.getLogger("org").setLevel(Level.ERROR);
      SparkConf conf = new SparkConf().setAppName("count")
-    		 .setMaster("local[*]")
+//    		 .setMaster("local[*]")
     		 .set("es.index.auto.create","true")
     		 .set("es.nodes","search-test-es-jn2i3cv2sv6stdrrmcw4fcc6lq.us-east-1.es.amazonaws.com")
     		 .set("es.port","80")
@@ -55,9 +55,11 @@ public static void main(String[] args) throws IOException, InterruptedException 
                  e);
      }*/
      
-     AmazonKinesisClient kinesisClient =
+     
+     
+/*     AmazonKinesisClient kinesisClient =
     	        new AmazonKinesisClient(new DefaultAWSCredentialsProviderChain());
-    	kinesisClient.setEndpoint(ENDPOINT);
+    	kinesisClient.setEndpoint(ENDPOINT);*/
      
 // KinesisUtils.createStream(
      JavaReceiverInputDStream<byte[]> kinesisStream = KinesisUtils.createStream(
